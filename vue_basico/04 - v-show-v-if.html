@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+    <div id="app"> 
+        <p v-if="visivel">Primeiro</p>
+        <br>
+        <!-- Realizado o display para none e permanece na dorm  -->
+        <p v-show="visivel">Segundo</p>
+            <div>
+                <button @click="mostarOcutar">Mudar o status</button>
+            </div>
+    </div>
+    
+    <script>
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    visivel: false
+                },
+                methods: {
+                    mostarOcutar: function(){
+                        this.visivel = !this.visivel
+                    },
+                        
+                },
+            })
+    </script>
+</body>
+</html>

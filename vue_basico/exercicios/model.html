@@ -1,0 +1,53 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Apendendo o Vuejs</title>
+</head>
+<boddy>
+    <div id="app">
+       <h1> {{ title }}</h1> 
+        <label for="">Nome :</label>
+        <input  type="text" v-model="nome">
+        <br>
+
+        <label for="">Sobre Nome :</label>
+        <input type="text" v-model="sobrenome">
+
+        <br>
+
+        <label for="">Telefone :</label>
+        <input type="number" v-model="fone">
+
+        <br>
+
+        <label for=""> Aonde conhecemos?:</label>
+        <select v-model="conheceu">
+                <option value="Google">Google</option>
+                <option value="Amigo">Amigo</option>
+                <option value="TV">TV</option>
+        </select>
+        <br><br>
+     nome:{{nome}}<br>
+     Sobre nome: {{sobrenome}}<br>
+     Telefone: {{fone}}<br>
+     Aonde que conheceu ?: {{ conheceu}}<br>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    title : "Apendendo vue",
+                    nome: "",
+                    sobrenome: "",
+                    fone: "",
+                    conheceu: "",
+                }
+            })
+        </script>
+</boddy>
+</html>

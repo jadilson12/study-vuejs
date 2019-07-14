@@ -1,0 +1,21 @@
+
+<script src="js/vue.js"></script>
+
+<div id="app">
+    <input type="text" v-on:input="alterarTitulo">
+    {{ message }}
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        },
+        methods: {
+            alterarTitulo(e) {
+                this.message = e.target.value
+            }
+        },
+    })
+</script>

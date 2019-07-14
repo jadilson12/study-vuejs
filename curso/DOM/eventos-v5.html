@@ -1,0 +1,42 @@
+<script src="js/vue.js"></script>
+
+    <div id="app">
+
+        <p>{{ contador}}</p>
+        <button @click="soma(5, $event)">Somar</button>
+        <p v-on:mousemove="atualizarYX">Mouse: {{x}} e {{y}}
+            <span v-on:mousemove.stop>PARAR AQUI!!!!</span>
+        </p>
+        <!-- click.prevent evita o evento padrão -->
+        <a @click.prevent="naoNavegar" href="http://www.google.com/">Google</a>
+        <hr>
+        <input type="text" v-on:keyup.enter="exibirAlerta">
+        
+    </div>
+    
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0
+        },
+        methods: {
+            soma(passo, event) {
+                console.log(passo, event);
+                this.contador +=passo
+            },
+            atualizarYX(event) {
+                this.x = event.clientX
+                this.y = event.clientY
+            },
+            naoNavegar() {
+                console.log('Não Navegar!!!');
+            },
+            exibirAlerta() {
+                alert('Estou te Alertando!!!')
+            }
+        },
+    })
+</script>

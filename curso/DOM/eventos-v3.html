@@ -1,0 +1,29 @@
+<script src="js/vue.js"></script>
+
+    <div id="app">
+
+        <p>{{ contador}}</p>
+        <button @click="soma(5, $event)">Somar</button>
+        <p v-on:mousemove="atualizarYX">Mouse: {{x}} e {{y}}</p>
+    </div>
+    
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0
+        },
+        methods: {
+            soma(passo, event) {
+                console.log(passo, event);
+                this.contador +=passo
+            },
+            atualizarYX(event) {
+                this.x = event.clientX
+                this.y = event.clientY
+            }
+        },
+    })
+</script>

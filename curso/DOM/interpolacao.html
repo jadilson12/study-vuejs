@@ -1,0 +1,23 @@
+<script src="js/vue.js"></script>
+
+<div id="app">
+
+    <p>{{ contador}}</p>
+    <p>{{ contador > 10 ? 'maior do que 10' : ' Menor do que 10'}}</p>
+    <button @click="soma">Somar</button>
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0
+        },
+        methods: {
+            soma() {
+                this.contador ++
+            },
+        },
+    })
+</script>

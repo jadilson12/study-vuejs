@@ -1,0 +1,28 @@
+
+    <script src="js/vue.js"></script>
+
+    <div id="app">
+        <input type="text" v-on:input="alterarTitulo">
+
+        <p v-once>{{ titulo }}</p>
+        <p>{{ soudacao() }}</p>
+        <a href="{{ link }}">Google ?</a><br>
+        <a v-bind:href="link">Google</a>
+    
+    </div>
+    
+    <script>
+         new Vue({
+                el: '#app',
+                data: {
+                    titulo: 'Usando o VueJS',
+                    link: 'http://google.com'
+                },
+                methods: {
+                    soudacao() {
+                        this.titulo = "bom dia"
+                        return this.titulo
+                    }
+                },
+            })
+    </script>

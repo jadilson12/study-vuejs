@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <h1>O pais é {{pais}}</h1>
+        <div>
+            <img :src="imagem" alt="" width="200" height="200">
+        </div>
+        <button @click="brazil">brazil</button>
+        <button @click="japao">Japão</button>
+    </div>
+    
+    <script>
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    pais: '',
+                    imagem: ''
+                },
+                methods: {
+                    brazil: function () {
+                        this.pais = "Brazil"
+                        this.imagem = 'https://st.depositphotos.com/1609126/3723/i/450/depositphotos_37238347-stock-photo-brazil-flag.jpg'
+                    },
+                    japao: function () {
+                        this.pais = "Japao"
+                        this.imagem = 'https://assets-cdn.kangaroo.com.br/images/japao/mt-fuji-com-pagode-vermelho-fujiyoshida-japao.jpg'
+                    }
+                },
+            })
+    </script>
+</body>
+</html>

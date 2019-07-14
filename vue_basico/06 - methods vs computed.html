@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <p>Meu nome é {{ nomeCompletoC}}</p>
+            <div>
+                <input v-model="nome">
+            </div>
+    </div>
+    <script>
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    nome: "joão",
+                    sobrenome: "Almeida"
+                },
+                methods: {
+                    // sempre vai chamar, chamar usar {{ nomeCompletoM()}}
+                    nomeCompletoM: function(){
+                       return this.nome + " " + this.sobrenome
+                    }
+                },
+                computed: {
+                    // chama apenas quando o valor for alterado , para chamar usa {{ nomeCompletoC}}
+                    nomeCompletoC: function(){
+                        return this.nome + " " + this.sobrenome
+                    }
+                },
+            })
+    </script>
+</body>
+</html>

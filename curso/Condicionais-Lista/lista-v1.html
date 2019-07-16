@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+<script src="../DOM/js/vue.js"></script>
+
+<div id="app">
+    <ul>
+        <li v-for="cor in cores">{{cor}}</li>
+    </ul>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cores:['Preto', 'Rosa', 'Verde', 'Roxo'],
+            pessoas: [
+                {nome: 'Ana', idade: 26, peso: 56},
+                {nome: 'Pedro', idade: 23, peso: 17},
+                {nome: 'Carlos', idade: 65, peso: 89},
+                {nome: 'Jose', idade: 34, peso: 53},
+            ]
+        },
+    })
+</script>

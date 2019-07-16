@@ -1,0 +1,52 @@
+<meta charset="UTF-8">
+<script src="../DOM/js/vue.js"></script>
+
+<div id="app">
+    <ul>
+        <li v-for="(cor, i) in cores" :key="cor">
+            {{ i + 1 }}) - {{ cor }}
+        </li>
+    </ul>
+    <button @click="cores.push('branca')">Adicionar</button>
+    <template v-for="(cor, i) in cores">
+        <h4>{{ cor }}</h4>
+        <p>{{ i+1 }}</p>
+    </template>
+  
+    <hr>
+    <ul>
+        <li v-for="pessoa in pessoas">
+            <div v-for="(valor, chave, i) in pessoa">
+                    {{ i + 1 }}) {{ chave }} = {{ valor }}
+            </div>
+            <hr>
+        </li>
+    </ul>
+    <span v-for="n in 10 ">{{ n }}</span>
+   
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cores:['Preto', 'Rosa', 'Verde', 'Roxo'],
+            pessoas: [
+                {nome: 'Ana', idade: 26, peso: 56},
+                {nome: 'Pedro', idade: 23, peso: 17},
+                {nome: 'Carlos', idade: 65, peso: 89},
+                {nome: 'Jose', idade: 34, peso: 53},
+            ]
+        },
+    })
+</script>
+
+<style>
+    ul {
+        list-style: none;
+    }
+
+    h4, p {
+        display: inline;
+    }
+</style>

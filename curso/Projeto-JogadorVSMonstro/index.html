@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="estilo.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="jogo">
+    <div class="modulo jogadores">
+        <div class="jogador">
+            <h1>Jogador</h1><br>
+            <div class="barra-progresso">
+                <div class="barra" :class="{barraVida: jogador < 20}" 
+                :style="{width: jogador + '%'}"></div>
+            </div>
+            <p class="procentagem">{{jogador}}%</p>
+        </div>
+        <div class="jogador">
+            <h1>Monstro</h1><br>
+            <div class="barra-progresso">
+                <div class="barra"  :class="{barraVida: jogador < 20}"
+                 :style="{width: monstro + '%'}"></div>
+            </div>
+            <p class="procentagem">{{monstro}}%</p>
+        </div>
+    </div>
+    <div class="modulo aviso" v-if="resultado != 0">
+        <div class="msg" v-if="monstro == 0">Você Ganhou :)</div>
+        <div class="msg" v-else>Você Perdeu :(</div>
+    </div>
+    <div class="modulo botoes">
+        <template v-if="!novoJogo">
+            <button class="btn atacar" @click="ataque(false)">ATAQUE</button>
+            <button class="btn atacarEspecial" @click="ataque(true)">ATAQUE ESPECIAL</button>
+            <button class="btn curar" @click="curarEAtaque">CURAR</button>
+            <button class="btn desitir" @click="desistir">DESISTIR</button>
+        </template>
+
+        <button class="btn NovoJogo" @click="novoJogo = !novoJogo" v-else>Iniciar jogo</button>
+    </div>
+    <div class="modulo logJogador" v-if="logs.length">
+        <ul>
+            <li v-for="log in logs" :class="log.estilo" class="log">{{ log.text }}</li>
+        </ul>
+            <!-- <div class="logJogador" v-for="(log, chave)  in logs">{{chave + 1}} Jogada atigiu o
+                <strong>MONSTRO</strong> com ({{log.jogador}})
+            </div> -->
+            <!-- <div class="logMonstro" v-for="(log, chave)  in logs">{{chave + 1}} Jogada atigiu o
+                <strong>JOGADOR</strong> com ({{log.monstro}})
+            </div> -->
+    </div>
+
+</div>
+
+<script src="app.js"></script>

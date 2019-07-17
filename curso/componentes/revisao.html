@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+<script src="http://unpkg.com/vue"></script>
+
+<div id="app">
+    <contador></contador>
+</div>
+
+<script>
+ //   Registo Global
+    Vue.component('contador', {
+        template: 
+        `<div>
+            <h1>{{ contador }}</h1>
+            <button @click="contador++">+1</button>
+            <button @click="contador--">-1</button>
+        </div>
+        `,
+        data(){
+            return{
+                contador: 0
+            }
+        }
+    })
+    new Vue({
+        el: "#app",
+    })
+</script>
